@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NammaWeb AI Learning Suite | AI for NEET, CET & JEE (Medical & Engineering)</title>
+  <meta name="description" content="Master NEET, KCET, and JEE with NammaWeb AI Learning Suite. AI-powered adaptive prep, smart error logs, and elite question analytics in India." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #004d40;
+      --primary-dark: #00251a;
+      --accent: #00b4d8;
+      --gold: #d4af37;
+      --bg: #030d0c;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(0, 180, 216, 0.18);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
+
+    /* Crisp Vector Logo Container */
+    .brand-svg-box {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      box-shadow: 0 2px 10px rgba(0, 180, 216, 0.2);
+    }
+
+    .brand-svg-box svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(2, 13, 12, 0.85);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .nav-brand span {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: #fff;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, #00897b, #004d40);
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 137, 123, 0.3);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 5% 4rem;
+      text-align: center;
+      position: relative;
+      background: radial-gradient(circle at center, rgba(0, 77, 64, 0.35) 0%, rgba(3, 13, 12, 0) 70%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(0, 180, 216, 0.12);
+      border: 1px solid var(--accent);
+      border-radius: 30px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 25px rgba(0, 180, 216, 0.4);
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0, 180, 216, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 180, 216, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* 6-Line Core Teaching Section */
+    .six-lines {
+      padding: 4rem 5%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card-boxed {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 3rem;
+    }
+
+    .six-lines h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .line-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .line-item i {
+      color: var(--accent);
+      font-size: 1.25rem;
+      margin-top: 3px;
+    }
+
+    /* Visual Gallery */
+    .gallery-section {
+      padding: 5rem 5%;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: left;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .gallery-card .content {
+      padding: 1.5rem;
+    }
+
+    .gallery-card .badge-sm {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(0, 180, 216, 0.2);
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Booking & Pricing Section */
+    .pricing-section {
+      padding: 5rem 5%;
+      background: radial-gradient(circle at top, rgba(0, 77, 64, 0.25) 0%, transparent 60%);
+      text-align: center;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--gold);
+      background: linear-gradient(180deg, rgba(212, 175, 55, 0.08) 0%, var(--card-bg) 100%);
+      transform: scale(1.03);
+    }
+
+    .featured-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .price-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 1.25rem 0;
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .features-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .features-list i {
+      color: #2ec4b6;
+    }
+
+    /* Modal Popup */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .popup-box {
+      background: #061917;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .popup-box h3 {
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .whatsapp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #25d366;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 1rem 0;
+      background: rgba(37, 211, 102, 0.12);
+      padding: 8px 18px;
+      border-radius: 30px;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      text-decoration: none;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+      color: var(--text-muted);
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      color: #fff;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 4rem 5% 2rem;
+      background: #010807;
+      text-align: center;
+    }
+
+    .footer-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .footer-svg-box {
+      width: 65px;
+      height: 65px;
+      background: #ffffff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      box-shadow: 0 4px 18px rgba(0, 180, 216, 0.25);
+    }
+
+    .footer-svg-box svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .footer-site-link {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-site-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .price-card.featured { transform: none; }
+      nav a:not(.nav-btn) { display: none; }
+      .hero { padding: 4rem 5% 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="nav-brand">
+      <!-- High Resolution Crisp Vector Diamond Logo -->
+      <div class="brand-svg-box">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 12 L84 46 L50 80 L16 46 Z" stroke="#005b52" stroke-width="7" stroke-linejoin="round" />
+          <path d="M50 26 L74 50 L50 74 L26 50 Z" stroke="#005b52" stroke-width="7" stroke-linejoin="round" />
+          <path d="M28 50 L64 14 L86 36 L50 72" stroke="#005b52" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M72 50 L36 86 L14 64 L50 28" stroke="#005b52" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <span>NammaWeb AI</span>
+    </a>
+    <nav>
+      <a href="#teaching" class="active">NEET/CET/JEE Suite</a>
+      <a href="#gallery">Images</a>
+      <a href="#pricing">Plans & Pricing</a>
+      <a href="blog.html">SEO Blog</a>
+      <a href="javascript:void(0)" onclick="openModal()" class="nav-btn"><i class="fab fa-whatsapp"></i> Chat 7676546577</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="badge">Next-Gen AI Entrance Exam Prep</div>
+    <h1>AI-Powered Mastery for <br /><span>NEET, CET & JEE</span></h1>
+    <p>Engineered for elite aspirants in Medical & Engineering. Real-time cognitive evaluation, dynamic mock testing, and targeted rank booster algorithms.</p>
+    <div class="cta-group">
+      <a href="#pricing" class="btn btn-primary"><i class="fas fa-bolt"></i> Start Exam Prep</a>
+      <a href="javascript:void(0)" onclick="openModal()" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Instant WhatsApp Demo</a>
+    </div>
+  </section>
+
+  <!-- Six Lines Section -->
+  <section class="six-lines" id="teaching">
+    <div class="card-boxed">
+      <h2>Comprehensive Exam Teaching Model</h2>
+      <div class="teaching-grid">
+        <div class="line-item">
+          <i class="fas fa-check-circle"></i>
+          <div><strong>1. NEET (Medical) AI Precision:</strong> Tailored bio-conceptual drills, NCERT-deep index mapping, and High-Yield assertion-reason mastery for top medical colleges.</div>
+        </div>
+        <div class="line-item">
+          <i class="fas fa-check-circle"></i>
+          <div><strong>2. JEE Mains & Advanced (Engg):</strong> Real-time numerical speed engines, algorithmic physics problem sets, and organic reaction-matrix predictors for IIT aspirants.</div>
+        </div>
+        <div class="line-item">
+          <i class="fas fa-check-circle"></i>
+          <div><strong>3. CET / KCET Regional Focus:</strong> High-speed time-per-question analytics, speed hacks, and syllabus-aligned mock frameworks for state rank dominance.</div>
+        </div>
+        <div class="line-item">
+          <i class="fas fa-check-circle"></i>
+          <div><strong>4. AI Weak-Area Diagnostics:</strong> Deep algorithmic identification of conceptual leaks, converting your recurring negative marks into secure points.</div>
+        </div>
+        <div class="line-item">
+          <i class="fas fa-check-circle"></i>
+          <div><strong>5. 24/7 AI Doubt-Resolution Core:</strong> Instantaneous step-by-step breakdown of intricate numericals and chemical structures with 100% conceptual clarity.</div>
+        </div>
+        <div class="line-item">
+          <i class="fas fa-check-circle"></i>
+          <div><strong>6. Real-Time National Rank Simulation:</strong> Dynamically benchmarks candidate accuracy, stamina, and test velocity against thousands of pan-India aspirants.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Images Section -->
+  <section class="gallery-section" id="gallery">
+    <h2 class="section-title">Immersive Medical & Engineering Preparation</h2>
+    <p class="section-subtitle">Realize your potential with tailored AI modules for both clinical and engineering tracks</p>
+    
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="NEET Medical Prep" />
+        <div class="content">
+          <span class="badge-sm">NEET Medical</span>
+          <h3>Clinical Biology & Chemistry</h3>
+          <p>Micro-topic dissection of Botany, Zoology, and Human Physiology with clinical visualization engines.</p>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="JEE Engineering Prep" />
+        <div class="content">
+          <span class="badge-sm">JEE Engineering</span>
+          <h3>Advanced Physics & Calculus</h3>
+          <p>Deep-dive algorithmic problem solving and 3D geometric modeling for advanced engineering aspirants.</p>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80" alt="CET State Entrance" />
+        <div class="content">
+          <span class="badge-sm">CET / KCET</span>
+          <h3>Speed & Accuracy Drills</h3>
+          <p>Trained to solve 60 questions in 60 minutes with shortcut matrices and eliminate penalty points.</p>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="AI Assessment Suite" />
+        <div class="content">
+          <span class="badge-sm">AI Platform</span>
+          <h3>Adaptive Test Analytics</h3>
+          <p>Cognitive heat-maps and personalized revision trajectories updated after every single mock exam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <h2 class="section-title">Flexible Structured Access Plans</h2>
+    <p class="section-subtitle">Transparent Indian Rupee pricing tailored to your exam target roadmap</p>
+
+    <div class="pricing-grid">
+      <!-- 30 Days -->
+      <div class="price-card">
+        <div>
+          <h3>Sprint Booster</h3>
+          <p style="color:var(--text-muted)">Crash Course Prep</p>
+          <div class="price">₹1,499 <span>/ 30 Days</span></div>
+          <ul class="features-list">
+            <li><i class="fas fa-check"></i> 30 Days Full AI Suite Access</li>
+            <li><i class="fas fa-check"></i> 10 Full-Length Mock Exams</li>
+            <li><i class="fas fa-check"></i> NEET / CET / JEE Question Bank</li>
+            <li><i class="fas fa-check"></i> AI Error Log & Daily Fixes</li>
+          </ul>
+        </div>
+        <button onclick="openBooking('30 Days Plan (₹1,499)')" class="btn btn-secondary" style="width: 100%;">Enroll 30 Days</button>
+      </div>
+
+      <!-- 60 Days (Featured) -->
+      <div class="price-card featured">
+        <div class="featured-tag">Most Popular</div>
+        <div>
+          <h3>Rank Accelerator</h3>
+          <p style="color:var(--text-muted)">Intensive Revision</p>
+          <div class="price">₹2,799 <span>/ 60 Days</span></div>
+          <ul class="features-list">
+            <li><i class="fas fa-check"></i> 60 Days Unlimited AI Suite Access</li>
+            <li><i class="fas fa-check"></i> 25 Full-Length + 50 Chapter Mocks</li>
+            <li><i class="fas fa-check"></i> Personalized Weakness Engine</li>
+            <li><i class="fas fa-check"></i> Instant WhatsApp Doubt Resolution</li>
+          </ul>
+        </div>
+        <button onclick="openBooking('60 Days Plan (₹2,799)')" class="btn btn-primary" style="width: 100%;">Enroll 60 Days</button>
+      </div>
+
+      <!-- 125 Days -->
+      <div class="price-card">
+        <div>
+          <h3>Ultimate Ranker</h3>
+          <p style="color:var(--text-muted)">Full Foundation & Mastery</p>
+          <div class="price">₹4,999 <span>/ 125 Days</span></div>
+          <ul class="features-list">
+            <li><i class="fas fa-check"></i> 125 Days Complete Access</li>
+            <li><i class="fas fa-check"></i> Unlimited NEET/CET/JEE Practice</li>
+            <li><i class="fas fa-check"></i> 1-on-1 AI Mentorship Trajectory</li>
+            <li><i class="fas fa-check"></i> All-India Live Rank Benchmark</li>
+          </ul>
+        </div>
+        <button onclick="openBooking('125 Days Plan (₹4,999)')" class="btn btn-secondary" style="width: 100%;">Enroll 125 Days</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Booking Modal -->
+  <div class="popup-overlay" id="leadModal">
+    <div class="popup-box">
+      <div class="close-btn" onclick="closeModal()">&times;</div>
+      <h3>Book Your AI Seat</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Direct counseling via WhatsApp</p>
+      
+      <a href="https://wa.me/917676546577?text=Hello%20NammaWeb%20AI,%20I%20want%20to%20enroll%20in%20NEET/CET/JEE%20Learning%20Suite" target="_blank" class="whatsapp-badge">
+        <i class="fab fa-whatsapp"></i> WhatsApp: 7676546577
+      </a>
+
+      <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label>Selected Plan</label>
+          <input type="text" id="selectedPlan" readonly value="General Inquiry" />
+        </div>
+        <div class="form-group">
+          <label>Candidate Name</label>
+          <input type="text" id="studentName" required placeholder="Enter student's name" />
+        </div>
+        <div class="form-group">
+          <label>Target Exam</label>
+          <select id="examSelect">
+            <option value="NEET (Medical)">NEET (Medical)</option>
+            <option value="JEE (Engineering)">JEE (Engineering)</option>
+            <option value="CET / KCET">CET / KCET</option>
+            <option value="Combined Med/Engg">Combined Med & Engg</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:10px;">
+          Confirm via WhatsApp <i class="fab fa-whatsapp"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer with High-Res Logo and info@nammaweb.com -->
+  <footer>
+    <div class="footer-logo-wrap">
+      <div class="footer-svg-box">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 12 L84 46 L50 80 L16 46 Z" stroke="#005b52" stroke-width="7" stroke-linejoin="round" />
+          <path d="M50 26 L74 50 L50 74 L26 50 Z" stroke="#005b52" stroke-width="7" stroke-linejoin="round" />
+          <path d="M28 50 L64 14 L86 36 L50 72" stroke="#005b52" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M72 50 L36 86 L14 64 L50 28" stroke="#005b52" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div class="brand-font" style="font-size: 1.4rem; font-weight:700;">NammaWeb AI Learning Suite</div>
+      <!-- Updated Email -->
+      <a href="mailto:info@nammaweb.com" class="footer-site-link"><i class="fas fa-envelope"></i> info@nammaweb.com</a>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.9rem; max-width:600px; margin: 0 auto 1.5rem;">
+      Empowering medical and engineering aspirants across India with cutting-edge artificial intelligence and high-velocity testing analytics.
+    </p>
+    <p style="color: #475569; font-size: 0.8rem;">
+      © 2026 NammaWeb AI. All Rights Reserved. WhatsApp Support: +91 7676546577
+    </p>
+  </footer>
+
+  <script>
+    function openModal() {
+      document.getElementById('leadModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('leadModal').style.display = 'none';
+    }
+    function openBooking(planName) {
+      document.getElementById('selectedPlan').value = planName;
+      openModal();
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const plan = encodeURIComponent(document.getElementById('selectedPlan').value);
+      const name = encodeURIComponent(document.getElementById('studentName').value);
+      const exam = encodeURIComponent(document.getElementById('examSelect').value);
+      const text = `Hello NammaWeb AI, my name is ${name}. I am preparing for ${exam} and wish to book the ${plan}.`;
+      window.open(`https://wa.me/917676546577?text=${text}`, '_blank');
+      closeModal();
+    }
+    setTimeout(() => {
+      if(!sessionStorage.getItem('popupShown')) {
+        openModal();
+        sessionStorage.setItem('popupShown', 'true');
+      }
+    }, 6000);
+  </script>
+</body>
+</html>
